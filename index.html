@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>누리 — 판매·영업·회계 통합 관리 프로그램</title>
+<meta name="description" content="거래처·품목, 견적서, 판매·매입, 수금·미수금, 매출·매입장과 부가세 요약까지. 작은 사업장을 위한 PC용 통합 관리 프로그램 누리.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root { --teal:#155E78; --teal-d:#0E4458; --teal-l:#E8F1F4; --gold:#D4A955; --ink:#1C252B; --muted:#55636B; --line:#DFE5E8; --bg:#fff; --soft:#F5F7F8; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --ink:#E9EEF0; --muted:#A7B4BA; --line:#2C3A41; --bg:#11191D; --soft:#18242A; --teal-l:#173640; } }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:"Noto Sans KR","Malgun Gothic",sans-serif; color:var(--ink); background:var(--bg); line-height:1.65; word-break:keep-all; }
+  a { color:var(--teal); }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
+  header { border-bottom:1px solid var(--line); }
+  header .wrap { display:flex; align-items:center; justify-content:space-between; height:64px; }
+  header img { height:38px; }
+  header nav a { margin-left:22px; color:var(--ink); text-decoration:none; font-size:15px; }
+  .hero { padding:72px 0 56px; background:linear-gradient(180deg,var(--teal-l),var(--bg)); }
+  .hero .wrap { display:grid; grid-template-columns:1fr 1.15fr; gap:48px; align-items:center; }
+  .hero h1 { font-size:40px; line-height:1.3; margin:0 0 16px; letter-spacing:-1px; }
+  .hero h1 em { font-style:normal; color:var(--teal); }
+  .hero p { font-size:17px; color:var(--muted); margin:0 0 28px; }
+  .hero .shot { border-radius:12px; border:1px solid var(--line); box-shadow:0 18px 40px rgba(14,68,88,.18); width:100%; display:block; }
+  .cta { display:flex; gap:12px; flex-wrap:wrap; }
+  .btn { display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:8px; font-weight:700; font-size:16px; text-decoration:none; border:1px solid var(--line); color:var(--ink); background:var(--bg); }
+  .btn.pri { background:var(--teal); border-color:var(--teal); color:#fff; }
+  .btn.pri:hover { background:var(--teal-d); }
+  .btn[aria-disabled="true"] { opacity:.6; pointer-events:none; }
+  .note { font-size:13px; color:var(--muted); margin-top:10px; }
+  section { padding:64px 0; }
+  section.soft { background:var(--soft); }
+  h2 { font-size:28px; margin:0 0 8px; letter-spacing:-.5px; }
+  .lead { color:var(--muted); margin:0 0 32px; }
+  .features { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+  .f { border:1px solid var(--line); border-radius:12px; padding:22px; background:var(--bg); }
+  .f h3 { margin:0 0 6px; font-size:17px; }
+  .f p { margin:0; color:var(--muted); font-size:14.5px; }
+  .f .k { display:inline-block; width:32px; height:4px; border-radius:2px; background:var(--gold); margin-bottom:14px; }
+  .gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+  .gallery figure { margin:0; } .gallery img { width:100%; border-radius:10px; border:1px solid var(--line); display:block; }
+  .gallery figcaption { font-size:14px; color:var(--muted); margin-top:8px; text-align:center; }
+  ol.steps { padding-left:20px; } ol.steps li { margin-bottom:10px; }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+  table.req { width:100%; border-collapse:collapse; } .req th, .req td { text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); font-size:15px; } .req th { width:110px; color:var(--muted); font-weight:500; }
+  .support { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+  .support .f a.btn { margin-top:14px; font-size:14px; padding:9px 16px; }
+  footer { border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:var(--muted); }
+  footer .wrap { display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+  @media (max-width:860px) {
+    .hero .wrap, .two { grid-template-columns:1fr; } .features, .gallery, .support { grid-template-columns:1fr; }
+    .hero h1 { font-size:30px; } header nav { display:none; } .hero { padding:44px 0 36px; }
+  }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a href="./"><img src="img/logo-h.png" alt="누리"></a>
+  <nav><a href="#features">기능</a><a href="#install">설치 방법</a><a href="#support">고객 지원</a><a href="#download">다운로드</a></nav>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <div>
+    <h1>견적부터 미수금까지,<br><em>한 프로그램</em>으로 관리하세요</h1>
+    <p>거래처·품목 관리, 견적서, 판매·매입, 수금·지급, 매출·매입장과 부가세 요약까지. 작은 사업장을 위한 PC용 통합 관리 프로그램입니다.</p>
+    <div class="cta" id="download">
+      <a class="btn pri store-btn" href="#" aria-disabled="true">Microsoft Store에서 받기</a>
+      <a class="btn" href="#install">설치 방법 보기</a>
+    </div>
+    <div class="note store-note">Microsoft Store 출시를 준비하고 있습니다. 먼저 써 보고 싶으시면 <a href="mailto:nuri@sindoida.co.kr?subject=누리 사용 신청">nuri@sindoida.co.kr</a>로 연락 주세요.</div>
+  </div>
+  <img class="shot" src="img/dash.jpg" alt="누리 홈 화면: 이번 달 매출·매입, 미수금·미지급 합계와 최근 전표">
+</div></div>
+
+<section id="features"><div class="wrap">
+  <h2>꼭 필요한 기능만, 쉽게</h2>
+  <p class="lead">처음 쓰는 날부터 바로 견적서를 내고 미수금을 확인할 수 있습니다.</p>
+  <div class="features">
+    <div class="f"><span class="k"></span><h3>거래처·품목</h3><p>매출처·매입처를 나누어 관리하고, 거래처마다 판매·수금·잔액이 쌓이는 원장을 바로 봅니다.</p></div>
+    <div class="f"><span class="k"></span><h3>견적서 → 판매 전환</h3><p>견적서를 인쇄·PDF로 보내고, 계약되면 버튼 하나로 판매 전표로 바꿉니다.</p></div>
+    <div class="f"><span class="k"></span><h3>최근 단가 자동 표시</h3><p>품목을 입력하면 그 거래처에 최근 판매한 단가 3건이 보여 실수 없이 입력합니다.</p></div>
+    <div class="f"><span class="k"></span><h3>수금·미수금 현황</h3><p>받을 돈과 줄 돈을 거래처별로 한눈에 보고, 그 자리에서 수금·지급을 입력합니다.</p></div>
+    <div class="f"><span class="k"></span><h3>매출·매입장, 부가세 요약</h3><p>분기·반기 단위로 매출세액과 매입세액, 예상 납부세액을 정리해 신고 준비를 돕습니다.</p></div>
+    <div class="f"><span class="k"></span><h3>내 PC에 안전하게 저장</h3><p>자료는 사용하시는 PC에만 저장됩니다. 버튼 한 번으로 백업하고 언제든 복원할 수 있습니다.</p></div>
+  </div>
+</div></section>
+
+<section class="soft"><div class="wrap">
+  <h2>화면 미리보기</h2>
+  <p class="lead">익숙한 장부 형태 그대로, 필요한 정보만 보여 줍니다.</p>
+  <div class="gallery">
+    <figure><img src="img/form.jpg" alt="판매 입력 화면"><figcaption>판매 입력 — 품목 자동완성과 최근 단가</figcaption></figure>
+    <figure><img src="img/print.jpg" alt="견적서 인쇄 화면"><figcaption>견적서 인쇄 · PDF 저장</figcaption></figure>
+    <figure><img src="img/ledger.jpg" alt="매출매입장과 부가세 요약 화면"><figcaption>매출·매입장과 부가세 요약</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="install"><div class="wrap two">
+  <div>
+    <h2>설치 방법</h2>
+    <ol class="steps">
+      <li>위의 <b>Microsoft Store에서 받기</b>를 누릅니다.</li>
+      <li>Microsoft Store 앱이 열리면 <b>설치</b>를 누릅니다.</li>
+      <li>시작 메뉴에서 <b>누리</b>를 실행합니다.</li>
+      <li>처음 실행하면 <b>회사 정보·백업</b> 메뉴에서 상호·사업자번호를 입력하세요. 견적서와 거래명세서에 인쇄됩니다.</li>
+    </ol>
+    <p class="note">업데이트는 Microsoft Store에서 자동으로 설치됩니다. 자료는 업데이트해도 그대로 남습니다.</p>
+  </div>
+  <div>
+    <h2>사용 환경</h2>
+    <table class="req">
+      <tr><th>운영체제</th><td>Windows 10 (1809 이상) · Windows 11</td></tr>
+      <tr><th>저장 공간</th><td>200MB 이상</td></tr>
+      <tr><th>인터넷</th><td>설치·업데이트할 때만 필요 (사용 중에는 필요 없음)</td></tr>
+      <tr><th>인쇄</th><td>A4 견적서·거래명세서, PDF 저장 지원</td></tr>
+      <tr><th>현재 버전</th><td>0.1</td></tr>
+    </table>
+  </div>
+</div></section>
+
+<section class="soft" id="support"><div class="wrap">
+  <h2>고객 지원</h2>
+  <p class="lead">설치하다 막히거나 사용법이 궁금하시면 연락 주세요.</p>
+  <div class="support">
+    <div class="f"><span class="k"></span><h3>이메일 문의</h3><p>기능 문의, 오류 신고, 개선 요청을 보내 주세요.</p><a class="btn" href="mailto:nuri@sindoida.co.kr">nuri@sindoida.co.kr</a></div>
+    <div class="f"><span class="k"></span><h3>원격 지원</h3><p>상담원이 화면을 보며 직접 도와드립니다. 프로그램을 받아 실행한 뒤 ID와 비밀번호를 알려 주세요.</p><a class="btn" href="https://www.ultraviewer.net/" rel="noopener">원격 지원 프로그램 받기</a></div>
+    <div class="f"><span class="k"></span><h3>자료 백업 안내</h3><p>백업 파일은 문서 폴더의 <b>누리백업</b>에 저장됩니다. USB나 클라우드에 주기적으로 복사해 두세요.</p></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© 신도OA디지털 · 누리</span>
+  <span><a href="privacy.html">개인정보처리방침</a> · <a href="mailto:nuri@sindoida.co.kr">nuri@sindoida.co.kr</a></span>
+</div></footer>
+
+<script>
+  // Microsoft Store 출시 후 아래에 스토어 주소를 넣으면 다운로드 버튼이 켜집니다.
+  // 예: https://apps.microsoft.com/detail/9NXXXXXXXXXX
+  const STORE_URL = "";
+  if (STORE_URL) {
+    document.querySelectorAll(".store-btn").forEach(a => { a.href = STORE_URL; a.removeAttribute("aria-disabled"); });
+    document.querySelectorAll(".store-note").forEach(n => n.remove());
+  }
+</script>
+</body>
+</html>
