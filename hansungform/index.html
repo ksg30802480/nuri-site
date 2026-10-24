@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한성폼 - 견적·거래명세서·영업관리 프로그램</title>
+<meta name="description" content="견적서, 거래명세서, 발주서, 미수금, 세금계산서 발행 기록까지 PC 한 대에서 관리하는 영업관리 프로그램. 30일 무료 체험.">
+<style>
+  :root { --bg:#f5f7fa; --panel:#fff; --text:#1f2733; --muted:#5f6b7b; --line:#dfe3ea; --navy:#1d3557; --accent:#2f6fd0; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#12161c; --panel:#1b212a; --text:#e6ebf2; --muted:#a3adbb; --line:#2c3440; --navy:#9fb9e0; --accent:#6ea0ea; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo",sans-serif; line-height:1.6; }
+  .wrap { max-width:1040px; margin:0 auto; padding:0 16px; }
+  header { padding:20px 0; display:flex; align-items:center; gap:12px; }
+  .logo { width:40px; height:40px; border-radius:9px; background:#1d3557; color:#fff; display:grid; place-items:center; font-weight:800; font-size:20px; }
+  header b { font-size:20px; } header span { color:var(--muted); font-size:14px; }
+  header nav { margin-left:auto; font-size:14px; } header nav a { color:var(--muted); text-decoration:none; margin-left:14px; }
+  .hero { padding:36px 0 28px; display:grid; grid-template-columns:1fr 1.1fr; gap:32px; align-items:center; }
+  .hero h1 { font-size:34px; line-height:1.3; margin:0 0 12px; }
+  .hero p { color:var(--muted); font-size:17px; margin:0 0 22px; }
+  .btn { display:inline-block; padding:13px 26px; border-radius:8px; background:var(--accent); color:#fff; text-decoration:none; font-weight:700; font-size:17px; }
+  .btn.sub { background:transparent; color:var(--accent); border:1px solid var(--accent); font-weight:600; font-size:15px; padding:11px 18px; margin-left:8px; }
+  .meta { font-size:13px; color:var(--muted); margin-top:12px; }
+  .shot { width:100%; border-radius:10px; border:1px solid var(--line); box-shadow:0 8px 24px rgba(0,0,0,.12); display:block; }
+  section { padding:28px 0; }
+  h2 { font-size:24px; margin:0 0 16px; }
+  .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:18px; }
+  .card h3 { margin:0 0 6px; font-size:16px; } .card p { margin:0; color:var(--muted); font-size:14px; }
+  .steps { counter-reset:s; list-style:none; padding:0; margin:0; display:grid; gap:10px; }
+  .steps li { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 16px 14px 52px; position:relative; }
+  .steps li::before { counter-increment:s; content:counter(s); position:absolute; left:16px; top:13px; width:24px; height:24px; border-radius:50%; background:var(--accent); color:#fff; font-size:13px; display:grid; place-items:center; font-weight:700; }
+  table { width:100%; border-collapse:collapse; background:var(--panel); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  th, td { padding:11px 14px; border-bottom:1px solid var(--line); text-align:left; font-size:15px; }
+  th { width:30%; color:var(--muted); font-weight:600; }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  footer { padding:30px 0 40px; color:var(--muted); font-size:13px; border-top:1px solid var(--line); margin-top:20px; }
+  @media (max-width:760px) {
+    .hero, .two { grid-template-columns:1fr; } .grid { grid-template-columns:1fr; }
+    .hero h1 { font-size:27px; } header nav { display:none; } .btn.sub { margin:10px 0 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">H</div>
+    <div><b>한성폼</b><br><span>견적·거래명세서·영업관리</span></div>
+    <nav><a href="#features">기능</a><a href="#install">설치</a><a href="#license">사용 기간</a><a href="/">누리</a></nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>견적서부터 거래명세서,<br>미수금까지 PC 한 대로</h1>
+      <p>견적 확정 한 번에 거래명세서가 채워지고, PDF를 첨부해 바로 메일로 보냅니다. 인터넷 없이 내 PC에서 빠르게 동작합니다.</p>
+      <a class="btn" id="dl" href="https://github.com/ksg30802480/nuri-site/releases/latest/download/HansungForm.zip">무료 체험판 내려받기</a>
+      <a class="btn sub" href="#install">설치 방법</a>
+      <div class="meta">Windows 10 / 11 · 30일 무료 체험 · 게시자 신도OA디지털</div>
+    </div>
+    <img class="shot" src="img/home.jpg" alt="한성폼 홈 화면: 이번 달 매출, 진행 중 견적, 연락할 곳, 미수금">
+  </div>
+
+  <section id="features">
+    <h2>주요 기능</h2>
+    <div class="grid">
+      <div class="card"><h3>견적서 → 거래명세서</h3><p>견적이 확정되면 버튼 하나로 내용이 채워진 거래명세서 작성. 날짜·단가만 고쳐 저장합니다.</p></div>
+      <div class="card"><h3>A4 양식 인쇄 · PDF 메일</h3><p>전용 용지 없이 일반 A4에 양식째 인쇄. PDF를 자동 첨부해 거래처에 바로 발송합니다.</p></div>
+      <div class="card"><h3>발주 · 입고 · 재고</h3><p>발주서에서 입고 명세서로 넘기면 재고가 자동으로 늘어납니다.</p></div>
+      <div class="card"><h3>입금 · 미수금</h3><p>입금을 등록하면 거래처별 미수금이 자동 계산됩니다.</p></div>
+      <div class="card"><h3>매출·매입장 / 부가세</h3><p>홈택스 세금계산서 발행 기록을 남기고, 1기·2기·분기별 예상 부가세와 미기록 건을 확인합니다.</p></div>
+      <div class="card"><h3>영업일지 · 자동 백업</h3><p>상담 기록과 다음 연락일 알림. 날짜별 자동 백업으로 며칠 전 자료로도 되돌릴 수 있습니다.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="two">
+      <img class="shot" src="img/quote.jpg" alt="견적서 작성 화면">
+      <img class="shot" src="img/print.jpg" alt="인쇄된 견적서 양식">
+    </div>
+  </section>
+
+  <section id="install">
+    <h2>설치 방법</h2>
+    <ol class="steps">
+      <li><b>내려받기</b> — 위의 [무료 체험판 내려받기]를 눌러 HansungForm.zip을 받습니다.</li>
+      <li><b>압축 풀기</b> — 받은 파일을 마우스 오른쪽 클릭 → [압축 풀기].</li>
+      <li><b>install.bat 실행</b> — Windows 보안 경고가 나오면 [추가 정보] → [실행]을 누릅니다.</li>
+      <li><b>시작</b> — 바탕화면의 "한성폼" 바로가기로 실행하고 비밀번호를 정하면 바로 사용할 수 있습니다.</li>
+    </ol>
+    <p class="meta">새 버전도 같은 방법으로 설치하면 되며, 입력한 자료(C:\한성폼\data)는 그대로 유지됩니다.</p>
+  </section>
+
+  <section id="license">
+    <h2>사용 기간 · 라이선스</h2>
+    <table>
+      <tr><th>무료 체험</th><td>설치 후 30일, 모든 기능 사용</td></tr>
+      <tr><th>정식 사용</th><td>라이선스 키를 구입해 프로그램의 [라이선스] 메뉴에 등록 (사업자번호 기준 발급)</td></tr>
+      <tr><th>기간이 끝나면</th><td>30일 동안 조회·인쇄·백업 가능, 그 뒤 잠김 — 자료는 지워지지 않으며 키를 등록하면 바로 다시 사용</td></tr>
+      <tr><th>문의</th><td>신도OA디지털 · <a href="mailto:ksg@sindoida.co.kr">ksg@sindoida.co.kr</a></td></tr>
+    </table>
+  </section>
+
+  <footer>© 신도OA디지털 · 한성폼 <span id="ver">1.1.0</span> · <a href="/" style="color:inherit">누리 홈페이지</a></footer>
+</div>
+<script>
+// license.json 의 최신 버전 번호를 표시 (실패해도 무시)
+fetch('license.json', {cache:'no-store'}).then(r => r.json()).then(j => {
+  if (j.latest) document.getElementById('ver').textContent = j.latest;
+}).catch(() => {});
+</script>
+</body>
+</html>
