@@ -48,24 +48,21 @@
   table.req { width:100%; border-collapse:collapse; } .req th, .req td { text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); font-size:15px; } .req th { width:110px; color:var(--muted); font-weight:500; }
   .support { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
   .support .f a.btn { margin-top:14px; font-size:14px; padding:9px 16px; }
-  header nav a.nav-hs { color:var(--teal); font-weight:700; }
-  .other { display:grid; grid-template-columns:1.1fr 1fr; gap:32px; align-items:center; border:1px solid var(--line); border-radius:14px; padding:28px; background:var(--bg); text-decoration:none; color:inherit; transition:box-shadow .15s, border-color .15s; }
-  .other:hover { border-color:var(--teal); box-shadow:0 10px 28px rgba(14,68,88,.14); }
-  .other img { width:100%; border-radius:10px; border:1px solid var(--line); display:block; }
-  .other h3 { font-size:22px; margin:0 0 8px; } .other p { margin:0 0 16px; color:var(--muted); }
-  .other ul { margin:0 0 18px; padding-left:18px; color:var(--muted); font-size:14.5px; }
   footer { border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:var(--muted); }
   footer .wrap { display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
   @media (max-width:860px) {
-    .hero .wrap, .two, .other { grid-template-columns:1fr; } .features, .gallery, .support { grid-template-columns:1fr; }
+    .hero .wrap, .two { grid-template-columns:1fr; } .features, .gallery, .support { grid-template-columns:1fr; }
     .hero h1 { font-size:30px; } header nav { display:none; } .hero { padding:44px 0 36px; }
   }
+  .btn[hidden] { display:none; }
+  .dl-btn small { font-weight:400; opacity:.85; margin-left:4px; }
+  .steps .hint { color:#667; font-size:14px; }
 </style>
 </head>
 <body>
 <header><div class="wrap">
   <a href="./"><img src="logo-h.png" alt="누리"></a>
-  <nav><a href="#features">기능</a><a href="#install">설치 방법</a><a href="#support">고객 지원</a><a href="#download">다운로드</a><a href="hansungform/" class="nav-hs">한성폼</a></nav>
+  <nav><a href="#features">기능</a><a href="#install">설치 방법</a><a href="#support">고객 지원</a><a href="#download">다운로드</a></nav>
 </div></header>
 
 <div class="hero"><div class="wrap">
@@ -73,10 +70,11 @@
     <h1>견적부터 미수금까지,<br><em>한 프로그램</em>으로 관리하세요</h1>
     <p>거래처·품목 관리, 견적서, 판매·매입, 수금·지급, 매출·매입장과 부가세 요약까지. 작은 사업장을 위한 PC용 통합 관리 프로그램입니다.</p>
     <div class="cta" id="download">
-      <a class="btn pri store-btn" href="#" aria-disabled="true">Microsoft Store에서 받기</a>
+      <a class="btn pri dl-btn" href="https://github.com/ksg30802480/nuri-site/releases/latest/download/Nuri_setup.zip">무료로 받기 <small>(30일 체험)</small></a>
+      <a class="btn store-btn" href="#" hidden>Microsoft Store에서 받기</a>
       <a class="btn" href="#install">설치 방법 보기</a>
     </div>
-    <div class="note store-note">Microsoft Store 출시를 준비하고 있습니다. 먼저 써 보고 싶으시면 <a href="mailto:nuri@sindoida.co.kr?subject=누리 사용 신청">nuri@sindoida.co.kr</a>로 연락 주세요.</div>
+    <div class="note">Windows 10 · 11 PC용 · 버전 <b class="ver">0.5.2</b> · 체험 기간이 끝난 뒤 계속 쓰시려면 <a href="mailto:nuri@sindoida.co.kr?subject=누리 라이선스 문의">라이선스 문의</a></div>
   </div>
   <img class="shot" src="dash.jpg" alt="누리 홈 화면: 이번 달 매출·매입, 미수금·미지급 합계와 최근 전표">
 </div></div>
@@ -90,7 +88,11 @@
     <div class="f"><span class="k"></span><h3>최근 단가 자동 표시</h3><p>품목을 입력하면 그 거래처에 최근 판매한 단가 3건이 보여 실수 없이 입력합니다.</p></div>
     <div class="f"><span class="k"></span><h3>수금·미수금 현황</h3><p>받을 돈과 줄 돈을 거래처별로 한눈에 보고, 그 자리에서 수금·지급을 입력합니다.</p></div>
     <div class="f"><span class="k"></span><h3>매출·매입장, 부가세 요약</h3><p>분기·반기 단위로 매출세액과 매입세액, 예상 납부세액을 정리해 신고 준비를 돕습니다.</p></div>
-    <div class="f"><span class="k"></span><h3>내 PC에 안전하게 저장</h3><p>자료는 사용하시는 PC에만 저장됩니다. 버튼 한 번으로 백업하고 언제든 복원할 수 있습니다.</p></div>
+    <div class="f"><span class="k"></span><h3>거래명세표 · 이메일 발송</h3><p>직인이 찍힌 거래명세표(2분할·1부)와 견적서를 바로 인쇄하거나 PDF로 거래처에 이메일 발송합니다.</p></div>
+    <div class="f"><span class="k"></span><h3>여러 PC에서 함께</h3><p>사무실의 여러 PC가 하나의 장부를 함께 씁니다. 주 PC 한 대에 자료를 두고 다른 PC는 접속만 하면 됩니다.</p></div>
+    <div class="f"><span class="k"></span><h3>매일 자동 백업</h3><p>날짜별로 30일치를 자동 보관하고, USB·NAS·클라우드 폴더에도 이중으로 저장합니다. 원하는 날짜로 되돌릴 수 있습니다.</p></div>
+    <div class="f"><span class="k"></span><h3>엑셀(CSV) 가져오기</h3><p>쓰던 프로그램의 거래처·품목을 CSV로 한 번에 가져오고, 언제든 CSV로 내보낼 수 있습니다.</p></div>
+    <div class="f"><span class="k"></span><h3>내 PC에 안전하게 저장</h3><p>자료는 사무실 PC에만 저장되고 인터넷으로 나가지 않습니다. 사용 중에는 인터넷이 없어도 됩니다.</p></div>
   </div>
 </div></section>
 
@@ -108,12 +110,14 @@
   <div>
     <h2>설치 방법</h2>
     <ol class="steps">
-      <li>위의 <b>Microsoft Store에서 받기</b>를 누릅니다.</li>
-      <li>Microsoft Store 앱이 열리면 <b>설치</b>를 누릅니다.</li>
-      <li>시작 메뉴에서 <b>누리</b>를 실행합니다.</li>
-      <li>처음 실행하면 <b>회사 정보·백업</b> 메뉴에서 상호·사업자번호를 입력하세요. 견적서와 거래명세서에 인쇄됩니다.</li>
+      <li>위의 <b>무료로 받기</b>를 눌러 <b>Nuri_setup.zip</b>을 내려받습니다.</li>
+      <li>받은 파일을 마우스 오른쪽 버튼으로 눌러 <b>모두 압축 풀기</b> → 위치를 <b>C:\누리</b>로 정하고 풉니다.</li>
+      <li><b>C:\누리\Nuri</b> 폴더의 <b>Nuri.exe</b>를 실행합니다.<br>
+        <span class="hint">“Windows의 PC 보호” 창이 뜨면 <b>추가 정보</b> → <b>실행</b>을 누르세요. (새로 나온 프로그램이라 처음 한 번 나오는 안내입니다)</span></li>
+      <li>바탕화면에 바로가기를 만들려면 Nuri.exe를 오른쪽 버튼으로 눌러 <b>더 많은 옵션 표시 → 보내기 → 바탕 화면에 바로 가기 만들기</b>.</li>
+      <li>처음 실행하면 <b>회사 정보·백업</b> 메뉴에서 상호·사업자번호를 입력하세요. 견적서와 거래명세표에 인쇄됩니다.</li>
     </ol>
-    <p class="note">업데이트는 Microsoft Store에서 자동으로 설치됩니다. 자료는 업데이트해도 그대로 남습니다.</p>
+    <p class="note"><b>새 버전으로 바꿀 때</b>: 새로 받은 파일을 같은 위치(C:\누리)에 덮어써서 풀면 됩니다. 입력한 자료는 따로 저장되어 있어 그대로 남습니다.</p>
   </div>
   <div>
     <h2>사용 환경</h2>
@@ -122,27 +126,10 @@
       <tr><th>저장 공간</th><td>200MB 이상</td></tr>
       <tr><th>인터넷</th><td>설치·업데이트할 때만 필요 (사용 중에는 필요 없음)</td></tr>
       <tr><th>인쇄</th><td>A4 견적서·거래명세서, PDF 저장 지원</td></tr>
-      <tr><th>현재 버전</th><td>0.1</td></tr>
+      <tr><th>현재 버전</th><td class="ver">0.5.2</td></tr>
+      <tr><th>사용 기간</th><td>설치 후 30일 무료 체험 · 이후 라이선스 (PC 수에 따라)</td></tr>
     </table>
   </div>
-</div></section>
-
-<section id="programs"><div class="wrap">
-  <h2>다른 프로그램</h2>
-  <p class="lead">신도OA디지털이 만든 업무 프로그램입니다.</p>
-  <a class="other" href="hansungform/">
-    <div>
-      <h3>한성폼 — 견적·거래명세서·영업관리</h3>
-      <p>견적이 확정되면 버튼 하나로 거래명세서가 채워지고, PDF를 첨부해 바로 메일로 보냅니다.</p>
-      <ul>
-        <li>견적서 → 거래명세서, 발주서 → 입고 처리</li>
-        <li>A4 양식 인쇄 · PDF 메일 발송 · 영업일지</li>
-        <li>30일 무료 체험</li>
-      </ul>
-      <span class="btn pri">한성폼 자세히 보기 →</span>
-    </div>
-    <img src="hansungform/img/home.jpg" alt="한성폼 홈 화면" loading="lazy">
-  </a>
 </div></section>
 
 <section class="soft" id="support"><div class="wrap">
@@ -151,22 +138,21 @@
   <div class="support">
     <div class="f"><span class="k"></span><h3>이메일 문의</h3><p>기능 문의, 오류 신고, 개선 요청을 보내 주세요.</p><a class="btn" href="mailto:nuri@sindoida.co.kr">nuri@sindoida.co.kr</a></div>
     <div class="f"><span class="k"></span><h3>원격 지원</h3><p>상담원이 화면을 보며 직접 도와드립니다. 프로그램을 받아 실행한 뒤 ID와 비밀번호를 알려 주세요.</p><a class="btn" href="https://www.ultraviewer.net/" rel="noopener">원격 지원 프로그램 받기</a></div>
-    <div class="f"><span class="k"></span><h3>자료 백업 안내</h3><p>백업 파일은 문서 폴더의 <b>누리백업</b>에 저장됩니다. USB나 클라우드에 주기적으로 복사해 두세요.</p></div>
+    <div class="f"><span class="k"></span><h3>자료 백업 안내</h3><p>매일 자동 백업이 문서 폴더의 <b>누리백업</b>에 30일치 저장됩니다. [회사 정보·백업]에서 <b>추가 백업 위치</b>(USB·NAS·클라우드 폴더)를 정해 두면 이중으로 보관됩니다.</p></div>
   </div>
 </div></section>
 
 <footer><div class="wrap">
   <span>© 신도OA디지털 · 누리</span>
-  <span><a href="hansungform/">한성폼</a> · <a href="privacy.html">개인정보처리방침</a> · <a href="mailto:nuri@sindoida.co.kr">nuri@sindoida.co.kr</a></span>
+  <span><a href="privacy.html">개인정보처리방침</a> · <a href="mailto:nuri@sindoida.co.kr">nuri@sindoida.co.kr</a></span>
 </div></footer>
 
 <script>
-  // Microsoft Store 출시 후 아래에 스토어 주소를 넣으면 다운로드 버튼이 켜집니다.
+  // Microsoft Store 출시 후 아래에 스토어 주소를 넣으면 "Microsoft Store에서 받기" 버튼도 나타납니다.
   // 예: https://apps.microsoft.com/detail/9NXXXXXXXXXX
   const STORE_URL = "";
   if (STORE_URL) {
-    document.querySelectorAll(".store-btn").forEach(a => { a.href = STORE_URL; a.removeAttribute("aria-disabled"); });
-    document.querySelectorAll(".store-note").forEach(n => n.remove());
+    document.querySelectorAll(".store-btn").forEach(a => { a.href = STORE_URL; a.hidden = false; });
   }
 </script>
 </body>
