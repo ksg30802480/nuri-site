@@ -48,10 +48,16 @@
   table.req { width:100%; border-collapse:collapse; } .req th, .req td { text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); font-size:15px; } .req th { width:110px; color:var(--muted); font-weight:500; }
   .support { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
   .support .f a.btn { margin-top:14px; font-size:14px; padding:9px 16px; }
+  header nav a.nav-hs { color:var(--teal); font-weight:700; }
+  .other { display:grid; grid-template-columns:1.1fr 1fr; gap:32px; align-items:center; border:1px solid var(--line); border-radius:14px; padding:28px; background:var(--bg); text-decoration:none; color:inherit; transition:box-shadow .15s, border-color .15s; }
+  .other:hover { border-color:var(--teal); box-shadow:0 10px 28px rgba(14,68,88,.14); }
+  .other img { width:100%; border-radius:10px; border:1px solid var(--line); display:block; }
+  .other h3 { font-size:22px; margin:0 0 8px; } .other p { margin:0 0 16px; color:var(--muted); }
+  .other ul { margin:0 0 18px; padding-left:18px; color:var(--muted); font-size:14.5px; }
   footer { border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:var(--muted); }
   footer .wrap { display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
   @media (max-width:860px) {
-    .hero .wrap, .two { grid-template-columns:1fr; } .features, .gallery, .support { grid-template-columns:1fr; }
+    .hero .wrap, .two, .other { grid-template-columns:1fr; } .features, .gallery, .support { grid-template-columns:1fr; }
     .hero h1 { font-size:30px; } header nav { display:none; } .hero { padding:44px 0 36px; }
   }
   .btn[hidden] { display:none; }
@@ -62,7 +68,7 @@
 <body>
 <header><div class="wrap">
   <a href="./"><img src="logo-h.png" alt="누리"></a>
-  <nav><a href="#features">기능</a><a href="#install">설치 방법</a><a href="#support">고객 지원</a><a href="#download">다운로드</a></nav>
+  <nav><a href="#features">기능</a><a href="#install">설치 방법</a><a href="#support">고객 지원</a><a href="#download">다운로드</a><a href="hansungform/" class="nav-hs">한성폼</a></nav>
 </div></header>
 
 <div class="hero"><div class="wrap">
@@ -70,7 +76,7 @@
     <h1>견적부터 미수금까지,<br><em>한 프로그램</em>으로 관리하세요</h1>
     <p>거래처·품목 관리, 견적서, 판매·매입, 수금·지급, 매출·매입장과 부가세 요약까지. 작은 사업장을 위한 PC용 통합 관리 프로그램입니다.</p>
     <div class="cta" id="download">
-      <a class="btn pri dl-btn" href="https://github.com/ksg30802480/nuri-site/releases/latest/download/Nuri_setup.zip">무료로 받기 <small>(30일 체험)</small></a>
+      <a class="btn pri dl-btn" href="https://github.com/ksg30802480/nuri-site/releases/download/nuri/Nuri_setup.zip">무료로 받기 <small>(30일 체험)</small></a>
       <a class="btn store-btn" href="#" hidden>Microsoft Store에서 받기</a>
       <a class="btn" href="#install">설치 방법 보기</a>
     </div>
@@ -132,6 +138,24 @@
   </div>
 </div></section>
 
+<section id="programs"><div class="wrap">
+  <h2>다른 프로그램</h2>
+  <p class="lead">신도OA디지털이 만든 업무 프로그램입니다.</p>
+  <a class="other" href="hansungform/">
+    <div>
+      <h3>한성폼 — 견적·거래명세서·영업관리</h3>
+      <p>견적이 확정되면 버튼 하나로 거래명세서가 채워지고, PDF를 첨부해 바로 메일로 보냅니다.</p>
+      <ul>
+        <li>견적서 → 거래명세서, 발주서 → 입고 처리</li>
+        <li>A4 양식 인쇄 · PDF 메일 발송 · 영업일지</li>
+        <li>30일 무료 체험</li>
+      </ul>
+      <span class="btn pri">한성폼 자세히 보기 →</span>
+    </div>
+    <img src="hansungform/img/home.jpg" alt="한성폼 홈 화면" loading="lazy">
+  </a>
+</div></section>
+
 <section class="soft" id="support"><div class="wrap">
   <h2>고객 지원</h2>
   <p class="lead">설치하다 막히거나 사용법이 궁금하시면 연락 주세요.</p>
@@ -144,7 +168,7 @@
 
 <footer><div class="wrap">
   <span>© 신도OA디지털 · 누리</span>
-  <span><a href="privacy.html">개인정보처리방침</a> · <a href="mailto:nuri@sindoida.co.kr">nuri@sindoida.co.kr</a></span>
+  <span><a href="hansungform/">한성폼</a> · <a href="privacy.html">개인정보처리방침</a> · <a href="mailto:nuri@sindoida.co.kr">nuri@sindoida.co.kr</a></span>
 </div></footer>
 
 <script>
