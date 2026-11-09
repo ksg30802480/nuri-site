@@ -46,9 +46,17 @@
   ol.steps { padding-left:20px; } ol.steps li { margin-bottom:10px; }
   .two { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
   table.req { width:100%; border-collapse:collapse; } .req th, .req td { text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); font-size:15px; } .req th { width:110px; color:var(--muted); font-weight:500; }
-  .support { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+  .support { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
   .support .f a.btn { margin-top:14px; font-size:14px; padding:9px 16px; }
   header nav a.nav-hs { color:var(--teal); font-weight:700; }
+  .videos { display:grid; grid-template-columns:1.35fr 1fr; gap:28px; align-items:start; }
+  .player { position:relative; aspect-ratio:16/9; border-radius:12px; overflow:hidden; border:1px solid var(--line); background:#000; box-shadow:0 18px 40px rgba(14,68,88,.18); }
+  .player iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+  ol.eps { list-style:none; margin:0; padding:0; counter-reset:ep -1; }
+  ol.eps li { counter-increment:ep; display:flex; gap:12px; align-items:baseline; padding:9px 0; border-bottom:1px solid var(--line); font-size:15px; }
+  ol.eps li::before { content:counter(ep) "편"; flex:0 0 38px; font-weight:700; color:var(--teal); font-size:14px; }
+  ol.eps li span { color:var(--muted); font-size:13.5px; margin-left:auto; white-space:nowrap; }
+  @media (max-width:860px) { .videos { grid-template-columns:1fr; } }
   .other { display:grid; grid-template-columns:1.1fr 1fr; gap:32px; align-items:center; border:1px solid var(--line); border-radius:14px; padding:28px; background:var(--bg); text-decoration:none; color:inherit; transition:box-shadow .15s, border-color .15s; }
   .other:hover { border-color:var(--teal); box-shadow:0 10px 28px rgba(14,68,88,.14); }
   .other img { width:100%; border-radius:10px; border:1px solid var(--line); display:block; }
@@ -68,7 +76,7 @@
 <body>
 <header><div class="wrap">
   <a href="./"><img src="logo-h.png" alt="누리"></a>
-  <nav><a href="#features">기능</a><a href="#install">설치 방법</a><a href="#support">고객 지원</a><a href="#download">다운로드</a><a href="oa/" class="nav-hs">OA 렌탈관리</a><a href="hansungform/" class="nav-hs">한성폼</a></nav>
+  <nav><a href="#features">기능</a><a href="#install">설치 방법</a><a href="#videos">사용 영상</a><a href="#support">고객 지원</a><a href="#download">다운로드</a><a href="oa/" class="nav-hs">OA 렌탈관리</a><a href="hansungform/" class="nav-hs">한성폼</a></nav>
 </div></header>
 
 <div class="hero"><div class="wrap">
@@ -79,6 +87,7 @@
       <a class="btn pri dl-btn" href="https://github.com/ksg30802480/nuri-site/releases/download/nuri/Nuri_Setup.exe">무료로 받기 <small>(30일 체험)</small></a>
       <a class="btn store-btn" href="#" hidden>Microsoft Store에서 받기</a>
       <a class="btn" href="#install">설치 방법 보기</a>
+      <a class="btn" href="#videos">▶ 사용 영상 보기</a>
     </div>
     <div class="note">Windows 10 · 11 PC용 · 버전 <b class="ver">0.5.6</b> · 체험 기간이 끝난 뒤 계속 쓰시려면 <a href="mailto:nuri@sindoida.co.kr?subject=누리 라이선스 문의">라이선스 문의</a></div>
   </div>
@@ -122,6 +131,7 @@
       <li>설치 화면에서 <b>다음</b>을 눌러 진행합니다. <b>C:\Nuri</b> 폴더에 자동으로 설치되고, 바탕 화면과 시작 메뉴에 <b>누리</b> 아이콘이 만들어집니다.</li>
       <li>처음 실행하면 <b>회사 정보·백업</b> 메뉴에서 상호·사업자번호를 입력하세요. 견적서와 거래명세표에 인쇄됩니다.</li>
     </ol>
+    <p class="note">설치 과정을 영상으로 보시려면 <a href="#videos">사용설명 영상 1편</a>을 보세요.</p>
     <p class="note"><b>새 버전으로 바꿀 때</b>: 새 설치 파일을 받아 그대로 실행하면 됩니다. 입력한 자료는 따로 저장되어 있어 그대로 남습니다.<br>
       <b>지울 때</b>: Windows 설정 → 앱 → 누리 → 제거. (자료는 남아 있어 다시 설치하면 이어서 쓸 수 있습니다)<br>
       설치 없이 쓰고 싶으시면 <a href="https://github.com/ksg30802480/nuri-site/releases/download/nuri/Nuri_setup.zip">압축 파일(zip)로 받기</a></p>
@@ -136,6 +146,27 @@
       <tr><th>현재 버전</th><td class="ver">0.5.6</td></tr>
       <tr><th>사용 기간</th><td>설치 후 30일 무료 체험 · 이후 라이선스 (PC 수에 따라)</td></tr>
     </table>
+  </div>
+</div></section>
+
+<section class="soft" id="videos"><div class="wrap">
+  <h2>사용설명 영상</h2>
+  <p class="lead">설치부터 부가세 정리까지, 1~2분짜리 영상 8편으로 알려드립니다. 0편부터 차례로 보세요.</p>
+  <div class="videos">
+    <div>
+      <div class="player"><iframe class="yt-embed" title="누리 사용설명 재생목록" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p style="margin-top:16px"><a class="btn pri yt-link" href="#" target="_blank" rel="noopener">유튜브에서 재생목록 보기</a></p>
+    </div>
+    <ol class="eps">
+      <li>누리를 소개합니다<span>1:06</span></li>
+      <li>설치하고 처음 시작하기<span>1:51</span></li>
+      <li>거래처·품목 등록하기<span>1:33</span></li>
+      <li>견적서 만들고 판매로 바꾸기<span>1:20</span></li>
+      <li>판매·매입 입력하기<span>1:31</span></li>
+      <li>수금·지급과 미수금 확인<span>1:05</span></li>
+      <li>매출·매입장과 부가세 요약<span>1:32</span></li>
+      <li>여러 PC에서 함께 쓰기와 백업<span>1:12</span></li>
+    </ol>
   </div>
 </div></section>
 
@@ -175,6 +206,7 @@
   <p class="lead">설치하다 막히거나 사용법이 궁금하시면 연락 주세요.</p>
   <div class="support">
     <div class="f"><span class="k"></span><h3>전화 · 이메일 문의</h3><p>기능 문의, 오류 신고, 개선 요청은 전화나 이메일로 연락 주세요.</p><a class="btn" href="tel:031-433-2480">☎ 031-433-2480</a> <a class="btn" href="mailto:nuri@sindoida.co.kr" style="margin-top:8px">nuri@sindoida.co.kr</a></div>
+    <div class="f"><span class="k"></span><h3>사용설명 영상</h3><p>기능별 사용법을 1~2분짜리 영상으로 볼 수 있습니다.</p><a class="btn" href="#videos">영상 보기</a></div>
     <div class="f"><span class="k"></span><h3>원격 지원</h3><p>상담원이 화면을 보며 직접 도와드립니다. 프로그램을 받아 실행한 뒤 ID와 비밀번호를 알려 주세요.</p><a class="btn" href="https://www.ultraviewer.net/" rel="noopener">원격 지원 프로그램 받기</a></div>
     <div class="f"><span class="k"></span><h3>자료 백업 안내</h3><p>매일 자동 백업이 문서 폴더의 <b>누리백업</b>에 30일치 저장됩니다. [회사 정보·백업]에서 <b>추가 백업 위치</b>(USB·NAS·클라우드 폴더)를 정해 두면 이중으로 보관됩니다.</p></div>
   </div>
@@ -189,6 +221,10 @@
   // Microsoft Store 출시 후 아래에 스토어 주소를 넣으면 "Microsoft Store에서 받기" 버튼도 나타납니다.
   // 예: https://apps.microsoft.com/detail/9NXXXXXXXXXX
   const STORE_URL = "";
+  // 유튜브 재생목록 ID (재생목록 주소의 list= 뒤 부분)
+  const PLAYLIST_ID = "PLXB3AyvrdXZs";
+  document.querySelectorAll(".yt-embed").forEach(f => { f.src = "https://www.youtube.com/embed/videoseries?list=" + PLAYLIST_ID; });
+  document.querySelectorAll(".yt-link").forEach(a => { a.href = "https://www.youtube.com/playlist?list=" + PLAYLIST_ID; });
   if (STORE_URL) {
     document.querySelectorAll(".store-btn").forEach(a => { a.href = STORE_URL; a.hidden = false; });
   }
