@@ -3,191 +3,232 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OA 렌탈관리 - 복합기·사무기기 렌탈 관리 프로그램</title>
-<meta name="description" content="계약·청구·거래명세서·AS·미수금까지 복합기 렌탈 업무를 내 PC에서 관리하는 프로그램. 90일 무료 체험.">
+<title>누리 — 판매·영업·회계 통합 관리 프로그램</title>
+<meta name="description" content="거래처·품목, 견적서, 판매·매입, 수금·미수금, 매출·매입장과 부가세 요약까지. 작은 사업장을 위한 PC용 통합 관리 프로그램 누리.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <style>
-  :root { --bg:#f5f7fa; --panel:#fff; --text:#1f2733; --muted:#5f6b7b; --line:#dfe3ea; --navy:#1d3557; --accent:#2f6fd0; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#12161c; --panel:#1b212a; --text:#e6ebf2; --muted:#a3adbb; --line:#2c3440; --navy:#9fb9e0; --accent:#6ea0ea; } }
-  * { box-sizing: border-box; }
-  body { margin:0; background:var(--bg); color:var(--text); font-family:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo",sans-serif; line-height:1.6; }
-  .wrap { max-width:1040px; margin:0 auto; padding:0 16px; }
-  header { padding:20px 0; display:flex; align-items:center; gap:12px; }
-  .logo { width:40px; height:40px; border-radius:9px; background:#1d3557; color:#fff; display:grid; place-items:center; font-weight:800; font-size:20px; }
-  header b { font-size:20px; } header span { color:var(--muted); font-size:14px; }
-  header nav { margin-left:auto; font-size:14px; } header nav a { color:var(--muted); text-decoration:none; margin-left:14px; }
-  .hero { padding:36px 0 28px; display:grid; grid-template-columns:1.3fr 1fr; gap:32px; align-items:center; }
-  .hero h1 { font-size:32px; line-height:1.3; margin:0 0 12px; }
-  .hero h1 .l1 { white-space:nowrap; }
-  .hero p { color:var(--muted); font-size:17px; margin:0 0 22px; }
-  .btn { display:inline-block; padding:13px 26px; border-radius:8px; background:var(--accent); color:#fff; text-decoration:none; font-weight:700; font-size:17px; }
-  .btn.sub { background:transparent; color:var(--accent); border:1px solid var(--accent); font-weight:600; font-size:15px; padding:11px 18px; margin-left:8px; }
-  .meta { font-size:13px; color:var(--muted); margin-top:12px; }
-  .shot { width:100%; border-radius:10px; border:1px solid var(--line); box-shadow:0 8px 24px rgba(0,0,0,.12); display:block; }
-  section { padding:28px 0; }
-  h2 { font-size:24px; margin:0 0 16px; }
-  .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
-  .card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:18px; }
-  .card h3 { margin:0 0 6px; font-size:16px; } .card p { margin:0; color:var(--muted); font-size:14px; }
-  .steps { counter-reset:s; list-style:none; padding:0; margin:0; display:grid; gap:10px; }
-  .steps li { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 16px 14px 52px; position:relative; }
-  .steps li::before { counter-increment:s; content:counter(s); position:absolute; left:16px; top:13px; width:24px; height:24px; border-radius:50%; background:var(--accent); color:#fff; font-size:13px; display:grid; place-items:center; font-weight:700; }
-  table { width:100%; border-collapse:collapse; background:var(--panel); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
-  th, td { padding:11px 14px; border-bottom:1px solid var(--line); text-align:left; font-size:15px; }
-  th { width:30%; color:var(--muted); font-weight:600; }
-  .two { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-  footer { padding:30px 0 40px; color:var(--muted); font-size:13px; border-top:1px solid var(--line); margin-top:20px; }
-  @media (max-width:760px) {
-    .hero, .two { grid-template-columns:1fr; } .grid, .plans { grid-template-columns:1fr; }
-    .hero h1 { font-size:clamp(19px, 6.3vw, 27px); } header nav { display:none; } .btn.sub { margin:10px 0 0; }
+  :root { --teal:#155E78; --teal-d:#0E4458; --teal-l:#E8F1F4; --gold:#D4A955; --ink:#1C252B; --muted:#55636B; --line:#DFE5E8; --bg:#fff; --soft:#F5F7F8; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --ink:#E9EEF0; --muted:#A7B4BA; --line:#2C3A41; --bg:#11191D; --soft:#18242A; --teal-l:#173640; } }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:"Noto Sans KR","Malgun Gothic",sans-serif; color:var(--ink); background:var(--bg); line-height:1.65; word-break:keep-all; }
+  a { color:var(--teal); }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
+  header { border-bottom:1px solid var(--line); }
+  header .wrap { display:flex; align-items:center; justify-content:space-between; height:64px; }
+  header img { height:38px; }
+  header nav a { margin-left:22px; color:var(--ink); text-decoration:none; font-size:15px; }
+  .hero { padding:72px 0 56px; background:linear-gradient(180deg,var(--teal-l),var(--bg)); }
+  .hero .wrap { display:grid; grid-template-columns:1fr 1.15fr; gap:48px; align-items:center; }
+  .hero h1 { font-size:40px; line-height:1.3; margin:0 0 16px; letter-spacing:-1px; }
+  .hero h1 em { font-style:normal; color:var(--teal); }
+  .hero p { font-size:17px; color:var(--muted); margin:0 0 28px; }
+  .hero .shot { border-radius:12px; border:1px solid var(--line); box-shadow:0 18px 40px rgba(14,68,88,.18); width:100%; display:block; }
+  .cta { display:flex; gap:12px; flex-wrap:wrap; }
+  .btn { display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:8px; font-weight:700; font-size:16px; text-decoration:none; border:1px solid var(--line); color:var(--ink); background:var(--bg); }
+  .btn.pri { background:var(--teal); border-color:var(--teal); color:#fff; }
+  .btn.pri:hover { background:var(--teal-d); }
+  .btn[aria-disabled="true"] { opacity:.6; pointer-events:none; }
+  .note { font-size:13px; color:var(--muted); margin-top:10px; }
+  section { padding:64px 0; }
+  section.soft { background:var(--soft); }
+  h2 { font-size:28px; margin:0 0 8px; letter-spacing:-.5px; }
+  .lead { color:var(--muted); margin:0 0 32px; }
+  .features { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+  .f { border:1px solid var(--line); border-radius:12px; padding:22px; background:var(--bg); }
+  .f h3 { margin:0 0 6px; font-size:17px; }
+  .f p { margin:0; color:var(--muted); font-size:14.5px; }
+  .f .k { display:inline-block; width:32px; height:4px; border-radius:2px; background:var(--gold); margin-bottom:14px; }
+  .gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+  .gallery figure { margin:0; } .gallery img { width:100%; border-radius:10px; border:1px solid var(--line); display:block; }
+  .gallery figcaption { font-size:14px; color:var(--muted); margin-top:8px; text-align:center; }
+  ol.steps { padding-left:20px; } ol.steps li { margin-bottom:10px; }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+  table.req { width:100%; border-collapse:collapse; } .req th, .req td { text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); font-size:15px; } .req th { width:110px; color:var(--muted); font-weight:500; }
+  .support { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+  .support .f a.btn { margin-top:14px; font-size:14px; padding:9px 16px; }
+  header nav a.nav-hs { color:var(--teal); font-weight:700; }
+  .videos { display:grid; grid-template-columns:1.35fr 1fr; gap:28px; align-items:start; }
+  .player { position:relative; aspect-ratio:16/9; border-radius:12px; overflow:hidden; border:1px solid var(--line); background:#000; box-shadow:0 18px 40px rgba(14,68,88,.18); }
+  .player iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+  ol.eps { list-style:none; margin:0; padding:0; counter-reset:ep -1; }
+  ol.eps li { counter-increment:ep; display:flex; gap:12px; align-items:baseline; padding:9px 0; border-bottom:1px solid var(--line); font-size:15px; }
+  ol.eps li::before { content:counter(ep) "편"; flex:0 0 38px; font-weight:700; color:var(--teal); font-size:14px; }
+  ol.eps li span { color:var(--muted); font-size:13.5px; margin-left:auto; white-space:nowrap; }
+  @media (max-width:860px) { .videos { grid-template-columns:1fr; } }
+  .other { display:grid; grid-template-columns:1.1fr 1fr; gap:32px; align-items:center; border:1px solid var(--line); border-radius:14px; padding:28px; background:var(--bg); text-decoration:none; color:inherit; transition:box-shadow .15s, border-color .15s; }
+  .other:hover { border-color:var(--teal); box-shadow:0 10px 28px rgba(14,68,88,.14); }
+  .other img { width:100%; border-radius:10px; border:1px solid var(--line); display:block; }
+  .other h3 { font-size:22px; margin:0 0 8px; } .other p { margin:0 0 16px; color:var(--muted); }
+  .other ul { margin:0 0 18px; padding-left:18px; color:var(--muted); font-size:14.5px; }
+  footer { border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:var(--muted); }
+  footer .wrap { display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+  @media (max-width:860px) {
+    .hero .wrap, .two, .other { grid-template-columns:1fr; } .features, .gallery, .support { grid-template-columns:1fr; }
+    .hero h1 { font-size:30px; } header nav { display:none; } .hero { padding:44px 0 36px; }
   }
-  .plans { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
-  .plan { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:22px 20px; position:relative; display:flex; flex-direction:column; }
-  .plan.best { border:2px solid var(--accent); box-shadow:0 8px 24px rgba(47,111,208,.18); }
-  .plan .tag { position:absolute; top:-12px; left:20px; background:var(--accent); color:#fff; font-size:12px; font-weight:700; padding:3px 10px; border-radius:999px; }
-  .plan h3 { margin:0 0 2px; font-size:18px; }
-  .plan .sub { color:var(--muted); font-size:13.5px; margin:0 0 14px; }
-  .plan .old { color:var(--muted); text-decoration:line-through; font-size:15px; }
-  .plan .now { font-size:32px; font-weight:800; line-height:1.15; }
-  .plan .now small { font-size:15px; font-weight:600; color:var(--muted); }
-  .plan .vat { color:var(--muted); font-size:13px; margin:4px 0 14px; }
-  .plan ul { list-style:none; padding:0; margin:0 0 4px; font-size:14.5px; }
-  .plan li { padding:6px 0 6px 22px; position:relative; border-top:1px solid var(--line); }
-  .plan li::before { content:"✓"; position:absolute; left:2px; color:var(--accent); font-weight:800; }
-  .plan .btn { text-align:center; margin-top:16px; font-size:15px; padding:11px 14px; }
-  .promo { background:var(--panel); border:1px dashed var(--accent); border-radius:10px; padding:12px 16px; font-size:14.5px; margin:0 0 18px; }
-  .promo b { color:var(--accent); }
-  .notes { color:var(--muted); font-size:13.5px; margin:14px 0 0; padding-left:18px; }
-  .notes li { margin:3px 0; }
-  @media (max-width:760px) { .plans { grid-template-columns:1fr; } .plan .now { font-size:28px; } }
-  .panel { background:var(--panel); border:1px solid var(--line); border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,.12); padding:22px; }
-  .panel h4 { margin:0 0 12px; font-size:15px; color:var(--muted); }
-  .panel div { display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--line); font-size:15px; }
-  .panel div:last-child { border:0; } .panel b { color:var(--accent); }
+  .btn[hidden] { display:none; }
+  .dl-btn small { font-weight:400; opacity:.85; margin-left:4px; }
+  .steps .hint { color:#667; font-size:14px; }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="logo">OA</div>
-    <div><b>OA 렌탈관리</b><br><span>복합기·사무기기 렌탈 관리</span></div>
-    <nav><a href="#features">기능</a><a href="#price">가격</a><a href="#install">설치</a><a href="#license">사용 기간</a><a href="/">누리</a></nav>
-  </header>
+<header><div class="wrap">
+  <a href="./"><img src="logo-h.png" alt="누리"></a>
+  <nav><a href="#features">기능</a><a href="#install">설치 방법</a><a href="#videos">사용 영상</a><a href="#support">고객 지원</a><a href="#download">다운로드</a><a href="oa/" class="nav-hs">OA 렌탈관리</a><a href="hansungform/" class="nav-hs">한성폼</a></nav>
+</div></header>
 
-  <div class="hero">
-    <div>
-      <h1><span class="l1">렌탈 계약부터 청구, 미수금까지</span><br>내 PC에서 한 번에</h1>
-      <p>거래처·기기·계약을 등록하면 월 청구서와 거래명세서가 만들어지고, 카운터 매수 청구와 AS 접수까지 한 곳에서 관리합니다. 인터넷 없이 내 PC에서 빠르게 동작합니다.</p>
-      <a class="btn" id="dl" href="https://github.com/ksg30802480/nuri-site/releases/download/oa-v1.0.0/OA_Rental_Setup.exe">무료 체험판 내려받기</a>
-      <a class="btn sub" href="#install">설치 방법</a>
-      <div class="meta">Windows 10 / 11 · 버전 <b class="vtxt">1.0.0</b> · 90일(3개월) 무료 체험 · 게시자 신도OA디지털</div>
+<div class="hero"><div class="wrap">
+  <div>
+    <h1>견적부터 미수금까지,<br><em>한 프로그램</em>으로 관리하세요</h1>
+    <p>거래처·품목 관리, 견적서, 판매·매입, 수금·지급, 매출·매입장과 부가세 요약까지. 작은 사업장을 위한 PC용 통합 관리 프로그램입니다.</p>
+    <div class="cta" id="download">
+      <a class="btn pri dl-btn" href="https://github.com/ksg30802480/nuri-site/releases/download/nuri/Nuri_Setup.exe">무료로 받기 <small>(30일 체험)</small></a>
+      <a class="btn store-btn" href="#" hidden>Microsoft Store에서 받기</a>
+      <a class="btn" href="#install">설치 방법 보기</a>
+      <a class="btn" href="#videos">▶ 사용 영상 보기</a>
     </div>
-    <div class="panel">
-      <h4>한 화면에서 관리</h4>
-      <div><span>거래처 · 기기 · 계약</span><b>등록</b></div>
-      <div><span>월 임대료 · 카운터 매수 청구</span><b>자동 계산</b></div>
-      <div><span>청구서 · 거래명세서 PDF</span><b>메일 발송</b></div>
-      <div><span>AS 접수 · 출장 기록</span><b>모바일 가능</b></div>
-      <div><span>수금 · 미수금 현황</span><b>거래처별</b></div>
-    </div>
+    <div class="note">Windows 10 · 11 PC용 · 버전 <b class="ver">0.5.6</b> · 체험 기간이 끝난 뒤 계속 쓰시려면 <a href="mailto:nuri@sindoida.co.kr?subject=누리 라이선스 문의">라이선스 문의</a></div>
   </div>
+  <img class="shot" src="dash.jpg" alt="누리 홈 화면: 이번 달 매출·매입, 미수금·미지급 합계와 최근 전표">
+</div></div>
 
-  <section id="features">
-    <h2>주요 기능</h2>
-    <div class="grid">
-      <div class="card"><h3>거래처 · 기기 · 계약</h3><p>설치 기기와 계약 조건(월 임대료, 기본 매수, 초과 단가)을 거래처별로 관리합니다.</p></div>
-      <div class="card"><h3>월 청구 · 통합청구</h3><p>정액·카운터·혼합 청구를 계산해 청구서를 만들고, 여러 계약을 한 번에 묶어 청구합니다.</p></div>
-      <div class="card"><h3>명세표 인쇄 · PDF 메일</h3><p>거래명세표를 A4에 인쇄하거나 PDF로 거래처에 바로 메일 발송합니다. 직인도 등록할 수 있습니다.</p></div>
-      <div class="card"><h3>AS 접수 · 카운터</h3><p>AS 요청을 접수하고 처리 내역을 기록합니다. 카운터 입력과 자동 수집 연동도 지원합니다.</p></div>
-      <div class="card"><h3>판매 · 매입 · 수금</h3><p>소모품 판매와 매입, 입금·지급을 등록하면 거래처별 미수금이 자동 계산됩니다.</p></div>
-      <div class="card"><h3>네트워크 공유 · 자동 백업</h3><p>같은 사무실의 다른 PC·휴대폰에서도 접속할 수 있고, 매일 자동 백업되며 언제든 복원합니다.</p></div>
-    </div>
-  </section>
+<section id="features"><div class="wrap">
+  <h2>꼭 필요한 기능만, 쉽게</h2>
+  <p class="lead">처음 쓰는 날부터 바로 견적서를 내고 미수금을 확인할 수 있습니다.</p>
+  <div class="features">
+    <div class="f"><span class="k"></span><h3>거래처·품목</h3><p>매출처·매입처를 나누어 관리하고, 거래처마다 판매·수금·잔액이 쌓이는 원장을 바로 봅니다.</p></div>
+    <div class="f"><span class="k"></span><h3>견적서 → 판매 전환</h3><p>견적서를 인쇄·PDF로 보내고, 계약되면 버튼 하나로 판매 전표로 바꿉니다.</p></div>
+    <div class="f"><span class="k"></span><h3>최근 단가 자동 표시</h3><p>품목을 입력하면 그 거래처에 최근 판매한 단가 3건이 보여 실수 없이 입력합니다.</p></div>
+    <div class="f"><span class="k"></span><h3>수금·미수금 현황</h3><p>받을 돈과 줄 돈을 거래처별로 한눈에 보고, 그 자리에서 수금·지급을 입력합니다.</p></div>
+    <div class="f"><span class="k"></span><h3>매출·매입장, 부가세 요약</h3><p>분기·반기 단위로 매출세액과 매입세액, 예상 납부세액을 정리해 신고 준비를 돕습니다.</p></div>
+    <div class="f"><span class="k"></span><h3>거래명세표 · 이메일 발송</h3><p>직인이 찍힌 거래명세표(2분할·1부)와 견적서를 바로 인쇄하거나 PDF로 거래처에 이메일 발송합니다.</p></div>
+    <div class="f"><span class="k"></span><h3>여러 PC에서 함께</h3><p>사무실의 여러 PC가 하나의 장부를 함께 씁니다. 주 PC 한 대에 자료를 두고 다른 PC는 접속만 하면 됩니다.</p></div>
+    <div class="f"><span class="k"></span><h3>매일 자동 백업</h3><p>날짜별로 30일치를 자동 보관하고, USB·NAS·클라우드 폴더에도 이중으로 저장합니다. 원하는 날짜로 되돌릴 수 있습니다.</p></div>
+    <div class="f"><span class="k"></span><h3>엑셀(CSV) 가져오기</h3><p>쓰던 프로그램의 거래처·품목을 CSV로 한 번에 가져오고, 언제든 CSV로 내보낼 수 있습니다.</p></div>
+    <div class="f"><span class="k"></span><h3>내 PC에 안전하게 저장</h3><p>자료는 사무실 PC에만 저장되고 인터넷으로 나가지 않습니다. 사용 중에는 인터넷이 없어도 됩니다.</p></div>
+  </div>
+</div></section>
 
-  <section id="price">
-    <h2>가격</h2>
-    <div class="promo"><b>출시 기념 특가</b> 진행 중 — 한정 기간 동안 연간·평생 라이선스를 정가보다 낮은 가격에 드립니다. 종료일은 이 페이지에 공지합니다.</div>
-    <div class="plans">
-      <div class="plan">
-        <h3>무료 체험</h3>
-        <p class="sub">먼저 써 보고 결정하세요</p>
-        <div class="now">0<small>원</small></div>
-        <div class="vat">설치 후 90일(3개월)</div>
-        <ul>
-          <li>모든 기능 제한 없이 사용</li>
-          <li>입력한 자료는 정식 사용 전환 후에도 그대로 유지</li>
-          <li>별도 가입·카드 등록 없음</li>
-        </ul>
-        <a class="btn sub" style="margin:16px 0 0;" href="https://github.com/ksg30802480/nuri-site/releases/download/oa-v1.0.0/OA_Rental_Setup.exe">체험판 내려받기</a>
-      </div>
-      <div class="plan">
-        <h3>연간 라이선스</h3>
-        <p class="sub">1년 단위로 사용 · 매년 갱신</p>
-        <div class="old">정가 120,000원</div>
-        <div class="now">100,000<small>원 / 년</small></div>
-        <div class="vat">부가세 별도 (부가세 포함 110,000원) · 월 약 8,300원</div>
-        <ul>
-          <li>모든 기능 + 새 버전 업데이트</li>
-          <li>갱신하면 새 만료일의 키를 다시 발급</li>
-          <li>소규모 사무실·처음 도입하는 분께</li>
-        </ul>
-        <a class="btn sub" style="margin:16px 0 0;" href="#buy">구매 문의</a>
-      </div>
-      <div class="plan best">
-        <span class="tag">3년 이상 쓰면 이득</span>
-        <h3>평생 라이선스</h3>
-        <p class="sub">한 번 결제로 기간 제한 없이</p>
-        <div class="old">정가 400,000원</div>
-        <div class="now">350,000<small>원 (1회)</small></div>
-        <div class="vat">부가세 별도 (부가세 포함 385,000원) · 연간형 약 3.5년치</div>
-        <ul>
-          <li>모든 기능, 기간 제한 없음</li>
-          <li>1.x 버전 업데이트 무상 포함 (큰 버전 2.0 이상은 별도)</li>
-          <li>장기 사용하는 사업장께 가장 경제적</li>
-        </ul>
-        <a class="btn" style="margin-top:16px; font-size:15px; text-align:center; padding:11px 14px;" href="#buy">구매 문의</a>
-      </div>
-    </div>
-    <ul class="notes">
-      <li>정가(출시 기념 종료 후): 연간 120,000원 · 평생 400,000원 (부가세 별도)</li>
-      <li>장비·거래처·계약 수에 제한이 없는 단일 가격입니다. 월 구독료나 서버 이용료가 없습니다.</li>
-      <li>라이선스는 설치한 PC의 고유번호를 기준으로 발급되며, PC를 바꾸면 새 키를 발급해 드립니다.</li>
-    </ul>
-    <h2 id="buy" style="margin-top:26px; font-size:20px;">구매 방법</h2>
-    <ol class="steps">
-      <li><b>체험판 설치</b> — 90일 동안 모든 기능을 써 봅니다.</li>
-      <li><b>구매 문의</b> — 전화 <a href="tel:031-433-2480">031-433-2480</a> 또는 <a href="mailto:nuri@sindoida.co.kr?subject=OA 렌탈관리 구매 문의">nuri@sindoida.co.kr</a> 로 연간·평생 중 원하는 방식과 PC 고유번호([환경설정 → 라이선스]에서 확인)를 알려 주세요.</li>
-      <li><b>결제</b> — 계좌이체 후 세금계산서를 발행해 드립니다.</li>
-      <li><b>라이선스 키 등록</b> — 입금 확인 후 키를 보내 드립니다. 프로그램에 등록하면 바로 정식 사용이 됩니다. (인터넷 없이 등록)</li>
-    </ol>
-  </section>
+<section class="soft"><div class="wrap">
+  <h2>화면 미리보기</h2>
+  <p class="lead">익숙한 장부 형태 그대로, 필요한 정보만 보여 줍니다.</p>
+  <div class="gallery">
+    <figure><img src="form.jpg" alt="판매 입력 화면"><figcaption>판매 입력 — 품목 자동완성과 최근 단가</figcaption></figure>
+    <figure><img src="print.jpg" alt="견적서 인쇄 화면"><figcaption>견적서 인쇄 · PDF 저장</figcaption></figure>
+    <figure><img src="ledger.jpg" alt="매출매입장과 부가세 요약 화면"><figcaption>매출·매입장과 부가세 요약</figcaption></figure>
+  </div>
+</div></section>
 
-  <section id="install">
+<section id="install"><div class="wrap two">
+  <div>
     <h2>설치 방법</h2>
     <ol class="steps">
-      <li><b>내려받기</b> — 위의 [무료 체험판 내려받기]를 눌러 OA_Rental_Setup.exe를 받습니다.</li>
-      <li><b>설치 실행</b> — 받은 파일을 실행합니다. Windows 보안 경고가 나오면 [추가 정보] → [실행]을 누릅니다.</li>
-      <li><b>처음 설정</b> — 설치가 끝나면 브라우저가 열립니다. 회사명과 로그인 아이디·비밀번호를 정하면 바로 사용할 수 있습니다.</li>
-      <li><b>다른 PC에서 접속(선택)</b> — [환경설정 → 네트워크 공유]에서 허용하면 같은 사무실의 다른 PC에서 접속할 수 있습니다.</li>
+      <li>위의 <b>무료로 받기</b>를 눌러 설치 파일 <b>Nuri_Setup.exe</b>를 내려받습니다.</li>
+      <li>받은 파일을 실행합니다.<br>
+        <span class="hint">“Windows의 PC 보호” 창이 뜨면 <b>추가 정보</b> → <b>실행</b>을 누르세요. (새로 나온 프로그램이라 처음 한 번 나오는 안내입니다)</span></li>
+      <li>설치 화면에서 <b>다음</b>을 눌러 진행합니다. <b>C:\Nuri</b> 폴더에 자동으로 설치되고, 바탕 화면과 시작 메뉴에 <b>누리</b> 아이콘이 만들어집니다.</li>
+      <li>처음 실행하면 <b>회사 정보·백업</b> 메뉴에서 상호·사업자번호를 입력하세요. 견적서와 거래명세표에 인쇄됩니다.</li>
     </ol>
-    <p class="meta">새 버전도 같은 방법으로 설치하면 되며, 입력한 자료(C:\ProgramData\OARental)는 그대로 유지됩니다.</p>
-  </section>
-
-  <section id="license">
-    <h2>사용 기간 · 라이선스</h2>
-    <table>
-      <tr><th>무료 체험</th><td>설치 후 90일(3개월), 모든 기능 사용</td></tr>
-      <tr><th>정식 사용</th><td>연간 또는 평생 라이선스를 구매하면 [환경설정 → 라이선스]의 PC 고유번호로 키를 발급해 드립니다. (인터넷 없이 등록) — <a href="#price">가격 보기</a></td></tr>
-      <tr><th>기간이 끝나면</th><td>라이선스·백업 화면만 열리고 나머지는 잠깁니다 — 자료는 지워지지 않으며 키를 등록하면 바로 다시 사용</td></tr>
-      <tr><th>문의</th><td>신도OA디지털 · 전화 <a href="tel:031-433-2480">031-433-2480</a> · <a href="mailto:nuri@sindoida.co.kr?subject=OA 렌탈관리 문의">nuri@sindoida.co.kr</a></td></tr>
+    <p class="note">설치 과정을 영상으로 보시려면 <a href="#videos">사용설명 영상 1편</a>을 보세요.</p>
+    <p class="note"><b>새 버전으로 바꿀 때</b>: 새 설치 파일을 받아 그대로 실행하면 됩니다. 입력한 자료는 따로 저장되어 있어 그대로 남습니다.<br>
+      <b>지울 때</b>: Windows 설정 → 앱 → 누리 → 제거. (자료는 남아 있어 다시 설치하면 이어서 쓸 수 있습니다)<br>
+      설치 없이 쓰고 싶으시면 <a href="https://github.com/ksg30802480/nuri-site/releases/download/nuri/Nuri_setup.zip">압축 파일(zip)로 받기</a></p>
+  </div>
+  <div>
+    <h2>사용 환경</h2>
+    <table class="req">
+      <tr><th>운영체제</th><td>Windows 10 (1809 이상) · Windows 11</td></tr>
+      <tr><th>저장 공간</th><td>200MB 이상</td></tr>
+      <tr><th>인터넷</th><td>설치·업데이트할 때만 필요 (사용 중에는 필요 없음)</td></tr>
+      <tr><th>인쇄</th><td>A4 견적서·거래명세서, PDF 저장 지원</td></tr>
+      <tr><th>현재 버전</th><td class="ver">0.5.6</td></tr>
+      <tr><th>사용 기간</th><td>설치 후 30일 무료 체험 · 이후 라이선스 (PC 수에 따라)</td></tr>
     </table>
-  </section>
+  </div>
+</div></section>
 
-  <footer>© 신도OA디지털 · OA 렌탈관리 <span id="ver">1.0.0</span> · <a href="/" style="color:inherit">누리 홈페이지</a> · <a href="../hansungform/" style="color:inherit">한성폼</a> · 문의 <a href="tel:031-433-2480" style="color:inherit">031-433-2480</a></footer>
-</div>
+<section class="soft" id="videos"><div class="wrap">
+  <h2>사용설명 영상</h2>
+  <p class="lead">설치부터 부가세 정리까지, 1~2분짜리 영상 8편으로 알려드립니다. 0편부터 차례로 보세요.</p>
+  <div class="videos">
+    <div>
+      <div class="player"><iframe class="yt-embed" title="누리 사용설명 재생목록" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p style="margin-top:16px"><a class="btn pri yt-link" href="#" target="_blank" rel="noopener">유튜브에서 재생목록 보기</a></p>
+    </div>
+    <ol class="eps">
+      <li>누리를 소개합니다<span>1:06</span></li>
+      <li>설치하고 처음 시작하기<span>1:51</span></li>
+      <li>거래처·품목 등록하기<span>1:33</span></li>
+      <li>견적서 만들고 판매로 바꾸기<span>1:20</span></li>
+      <li>판매·매입 입력하기<span>1:31</span></li>
+      <li>수금·지급과 미수금 확인<span>1:05</span></li>
+      <li>매출·매입장과 부가세 요약<span>1:32</span></li>
+      <li>여러 PC에서 함께 쓰기와 백업<span>1:12</span></li>
+    </ol>
+  </div>
+</div></section>
+
+<section id="programs"><div class="wrap">
+  <h2>다른 프로그램</h2>
+  <p class="lead">신도OA디지털이 만든 업무 프로그램입니다.</p>
+  <a class="other" href="hansungform/">
+    <div>
+      <h3>한성폼 — 견적·거래명세서·영업관리</h3>
+      <p>견적이 확정되면 버튼 하나로 거래명세서가 채워지고, PDF를 첨부해 바로 메일로 보냅니다.</p>
+      <ul>
+        <li>견적서 → 거래명세서, 발주서 → 입고 처리</li>
+        <li>A4 양식 인쇄 · PDF 메일 발송 · 영업일지</li>
+        <li>30일 무료 체험</li>
+      </ul>
+      <span class="btn pri">한성폼 자세히 보기 →</span>
+    </div>
+    <img src="hansungform/img/home.jpg" alt="한성폼 홈 화면" loading="lazy">
+  </a>
+  <a class="other" href="oa/" style="margin-top:18px">
+    <div>
+      <h3>OA 렌탈관리 — 복합기·사무기기 렌탈 관리</h3>
+      <p>계약·월 청구·거래명세서·AS·미수금까지 렌탈 업무를 내 PC에서 관리합니다.</p>
+      <ul>
+        <li>정액·카운터 청구, 통합청구, 청구서·명세표 PDF 메일</li>
+        <li>AS 접수, 네트워크 공유(사무실 다른 PC 접속), 자동 백업</li>
+        <li>90일 무료 체험</li>
+      </ul>
+      <span class="btn pri">OA 렌탈관리 자세히 보기 →</span>
+    </div>
+    <div style="background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px;line-height:2.1;color:var(--muted);font-size:15px"><b style="color:var(--text)">OA 렌탈관리</b><br>거래처 · 기기 · 계약<br>월 청구 · 카운터 매수<br>거래명세표 · PDF 메일<br>AS 접수 · 수금 · 미수금</div>
+  </a>
+</div></section>
+
+<section class="soft" id="support"><div class="wrap">
+  <h2>고객 지원</h2>
+  <p class="lead">설치하다 막히거나 사용법이 궁금하시면 연락 주세요.</p>
+  <div class="support">
+    <div class="f"><span class="k"></span><h3>전화 · 이메일 문의</h3><p>기능 문의, 오류 신고, 개선 요청은 전화나 이메일로 연락 주세요.</p><a class="btn" href="tel:031-433-2480">☎ 031-433-2480</a> <a class="btn" href="mailto:nuri@sindoida.co.kr" style="margin-top:8px">nuri@sindoida.co.kr</a></div>
+    <div class="f"><span class="k"></span><h3>사용설명 영상</h3><p>기능별 사용법을 1~2분짜리 영상으로 볼 수 있습니다.</p><a class="btn" href="#videos">영상 보기</a></div>
+    <div class="f"><span class="k"></span><h3>원격 지원</h3><p>상담원이 화면을 보며 직접 도와드립니다. 프로그램을 받아 실행한 뒤 ID와 비밀번호를 알려 주세요.</p><a class="btn" href="https://www.ultraviewer.net/" rel="noopener">원격 지원 프로그램 받기</a></div>
+    <div class="f"><span class="k"></span><h3>자료 백업 안내</h3><p>매일 자동 백업이 문서 폴더의 <b>누리백업</b>에 30일치 저장됩니다. [회사 정보·백업]에서 <b>추가 백업 위치</b>(USB·NAS·클라우드 폴더)를 정해 두면 이중으로 보관됩니다.</p></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© 신도OA디지털 · 누리</span>
+  <span><a href="oa/">OA 렌탈관리</a> · <a href="hansungform/">한성폼</a> · <a href="privacy.html">개인정보처리방침</a> · <a href="tel:031-433-2480">031-433-2480</a> · <a href="mailto:nuri@sindoida.co.kr">nuri@sindoida.co.kr</a></span>
+</div></footer>
+
 <script>
-fetch('license.json', {cache:'no-store'}).then(r => r.json()).then(j => {
-  if (j.latest) document.querySelectorAll('#ver, .vtxt').forEach(e => e.textContent = j.latest);
-}).catch(() => {});
+  // Microsoft Store 출시 후 아래에 스토어 주소를 넣으면 "Microsoft Store에서 받기" 버튼도 나타납니다.
+  // 예: https://apps.microsoft.com/detail/9NXXXXXXXXXX
+  const STORE_URL = "";
+  // 유튜브 재생목록 ID (재생목록 주소의 list= 뒤 부분)
+  const PLAYLIST_ID = "PLXB3AyvrdXZs";
+  document.querySelectorAll(".yt-embed").forEach(f => { f.src = "https://www.youtube.com/embed/videoseries?list=" + PLAYLIST_ID; });
+  document.querySelectorAll(".yt-link").forEach(a => { a.href = "https://www.youtube.com/playlist?list=" + PLAYLIST_ID; });
+  if (STORE_URL) {
+    document.querySelectorAll(".store-btn").forEach(a => { a.href = STORE_URL; a.hidden = false; });
+  }
 </script>
 </body>
 </html>
+<!-- redeploy 2026-11-10 -->
