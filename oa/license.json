@@ -1,6 +1,15 @@
 {
-  "latest": "1.0.0",
+  "latest": "1.1.0",
   "download": "https://nuri.sindoida.co.kr/oa/",
   "notice": "",
-  "revoked": []
+  "revoked": [],
+  "notes": [
+    "영수증·입금표",
+    "잔액 확인서",
+    "거래처별 단가",
+    "국세청 휴폐업 조회",
+    "매출 통계 차트",
+    "재고 자동 계산",
+    "일계표·월계표"
+  ]
 }
