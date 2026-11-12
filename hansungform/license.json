@@ -1,6 +1,13 @@
 {
-  "latest": "1.1.0",
+  "latest": "2.0.0",
   "download": "https://nuri.sindoida.co.kr/hansungform/",
   "notice": "",
-  "revoked": []
+  "revoked": [],
+  "notes": [
+    "전자세금계산서(홈택스 엑셀·바로빌)",
+    "사업자번호 검증·국세청 조회",
+    "매출 통계",
+    "재고 실사·안전재고",
+    "거래처 원장·잔액확인서"
+  ]
 }
