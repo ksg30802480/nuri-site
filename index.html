@@ -165,6 +165,23 @@
     body { padding-bottom:70px; }
     .page-head h1 { font-size:26px; }
   }
+  .ask { display:grid; grid-template-columns:1fr 1fr; gap:12px 16px; border:1px solid var(--line); border-top:3px solid var(--teal); padding:22px; background:var(--soft); }
+  .ask .wide { grid-column:1 / -1; }
+  .ask label { display:block; font-size:14px; font-weight:700; color:var(--ink); margin-bottom:5px; }
+  .ask label small { font-weight:400; color:var(--muted); }
+  .ask input, .ask select, .ask textarea { width:100%; padding:10px 12px; font:inherit; font-size:15px; border:1px solid #C9D3D8; border-radius:4px; background:#fff; color:var(--ink); }
+  .ask textarea { min-height:140px; resize:vertical; }
+  .ask input:focus, .ask select:focus, .ask textarea:focus { outline:2px solid var(--teal); border-color:var(--teal); }
+  .ask .agree { font-size:13.5px; color:var(--muted); background:#fff; border:1px solid var(--line); padding:12px 14px; }
+  .ask .agree label { display:flex; gap:8px; align-items:center; margin:8px 0 0; font-size:14.5px; }
+  .ask .agree input { width:auto; }
+  .ask .hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+  .ask .send { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  .ask .send button { padding:12px 34px; font-size:16px; font-weight:700; color:#fff; background:var(--teal); border:0; border-radius:4px; cursor:pointer; }
+  .ask .send button:disabled { opacity:.6; cursor:wait; }
+  .ask-msg { padding:12px 16px; margin-bottom:12px; font-size:15px; display:none; }
+  .ask-msg.ok { display:block; background:#E6F4EA; color:#145A32; } .ask-msg.err { display:block; background:#FDECEA; color:#922B21; }
+  @media (max-width:720px) { .ask { grid-template-columns:1fr; padding:16px; } }
 </style>
 </head>
 <body>
@@ -173,7 +190,7 @@
   <span class="call">상담 전화 031-433-2480</span>
   <a href="#support">고객지원</a>
   <a href="https://www.ultraviewer.net/" rel="noopener">원격지원</a>
-  <a href="mailto:nuri@sindoida.co.kr">이메일 문의</a>
+  <a href="#contact">온라인 문의</a>
   <a class="yt-link" href="#videos" target="_blank" rel="noopener">유튜브</a>
 </div></div>
 
@@ -186,6 +203,7 @@
     <a href="#videos">사용영상</a>
     <a href="#changes">개선내용</a>
     <a href="#support">고객지원</a>
+    <a href="#contact">문의하기</a>
   </nav>
 </div></header>
 
@@ -460,11 +478,37 @@
     <div class="sec" id="support">
       <h3>고객 지원</h3>
       <div class="support">
-        <div class="card"><h4>전화 · 이메일 문의</h4><p>기능 문의, 오류 신고, 개선 요청은 전화나 이메일로 연락 주세요.</p><a class="btn" href="tel:031-433-2480">☎ 031-433-2480</a> <a class="btn" href="mailto:nuri@sindoida.co.kr">nuri@sindoida.co.kr</a></div>
+        <div class="card"><h4>전화 · 온라인 문의</h4><p>기능 문의, 오류 신고, 개선 요청은 전화나 아래 문의 양식으로 남겨 주세요.</p><a class="btn" href="tel:031-433-2480">☎ 031-433-2480</a> <a class="btn pri" href="#contact">온라인 문의하기</a></div>
         <div class="card"><h4>원격 지원</h4><p>상담원이 화면을 보며 직접 도와드립니다. 프로그램을 받아 실행한 뒤 ID와 비밀번호를 알려 주세요.</p><a class="btn" href="https://www.ultraviewer.net/" rel="noopener">원격 지원 프로그램 받기</a></div>
         <div class="card"><h4>사용설명 영상</h4><p>기능별 사용법을 1~2분짜리 영상으로 볼 수 있습니다.</p><a class="btn" href="#videos">영상 보기</a></div>
         <div class="card"><h4>자료 백업 안내</h4><p>매일 자동 백업이 문서 폴더의 <b>누리백업</b>에 30일치 저장됩니다. [회사 정보·백업]에서 <b>추가 백업 위치</b>를 정해 두면 이중으로 보관됩니다.</p></div>
       </div>
+    </div>
+    <div class="sec" id="contact">
+      <h3>문의하기</h3>
+      <p style="margin:0 0 14px;color:var(--muted)">구입·가격, 설치, 사용법, 기능 요청 무엇이든 남겨 주세요. 영업일 기준 1일 안에 전화나 이메일로 답변드립니다.
+        급하시면 <a href="tel:031-433-2480"><b>031-433-2480</b></a>으로 전화 주세요.</p>
+      <div class="ask-msg" id="askMsg" role="status" aria-live="polite"></div>
+      <form class="ask" id="askForm" method="post" action="https://nuri-ask.sindoida.co.kr/submit">
+        <div><label for="a_product">상품</label>
+          <select id="a_product" name="product"><option>누리</option><option>OA 렌탈관리</option><option>한성폼</option><option>복합기 렌탈·AS</option><option>기타</option></select></div>
+        <div><label for="a_topic">문의 종류</label>
+          <select id="a_topic" name="topic"><option>구입·가격 문의</option><option>체험·설치</option><option>사용법·오류</option><option>기능 요청</option><option>기타</option></select></div>
+        <div><label for="a_name">이름 *</label><input id="a_name" name="name" maxlength="50" required autocomplete="name"></div>
+        <div><label for="a_company">상호 <small>(선택)</small></label><input id="a_company" name="company" maxlength="80" autocomplete="organization"></div>
+        <div><label for="a_phone">연락처 <small>(전화 또는 이메일 중 하나는 꼭)</small></label><input id="a_phone" name="phone" maxlength="30" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000"></div>
+        <div><label for="a_email">이메일</label><input id="a_email" name="email" type="email" maxlength="100" autocomplete="email" placeholder="example@company.com"></div>
+        <div class="wide"><label for="a_body">문의 내용 *</label><textarea id="a_body" name="body" maxlength="3000" required placeholder="예) 누리를 사무실 PC 2대에서 쓰려고 합니다. 가격이 궁금합니다."></textarea></div>
+        <div class="wide agree">
+          <b>개인정보 수집·이용 안내</b><br>
+          수집 항목: 이름, 상호, 연락처, 이메일, 문의 내용 · 목적: 문의 답변 · 보관 기간: 접수 후 1년 뒤 파기<br>
+          동의하지 않으실 수 있으며, 이 경우 온라인 문의 대신 전화로 문의해 주세요.
+          <label><input type="checkbox" name="agree" value="1" required> 개인정보 수집·이용에 동의합니다 (필수)</label>
+        </div>
+        <div class="hp" aria-hidden="true"><label>홈페이지 <input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <input type="hidden" name="t" id="a_t"><input type="hidden" name="back" id="a_back">
+        <div class="wide send"><button type="submit" id="askBtn">문의 보내기</button><span style="font-size:13.5px;color:var(--muted)">* 표시는 꼭 적어 주세요.</span></div>
+      </form>
     </div>
   </main>
 </div>
@@ -472,7 +516,7 @@
 <nav class="quick" aria-label="빠른 메뉴">
   <a href="tel:031-433-2480"><span class="ic" style="background:var(--teal)">☎</span>전화상담</a>
   <a href="https://www.ultraviewer.net/" rel="noopener"><span class="ic" style="background:#E8590C">⇆</span>원격지원</a>
-  <a href="mailto:nuri@sindoida.co.kr"><span class="ic" style="background:#2D7D46">✉</span>이메일</a>
+  <a href="#contact"><span class="ic" style="background:#2D7D46">✉</span>문의하기</a>
   <a class="yt-link" href="#videos" target="_blank" rel="noopener"><span class="ic" style="background:#E62117">▶</span>유튜브</a>
   <a href="#" class="top" onclick="scrollTo({top:0});return false"><span class="ic" style="background:#8A969C">↑</span>TOP</a>
 </nav>
@@ -490,6 +534,28 @@
   document.querySelectorAll(".yt-embed").forEach(f => { f.src = "https://www.youtube.com/embed/videoseries?list=" + PLAYLIST_ID; });
   document.querySelectorAll(".yt-link").forEach(a => { a.href = "https://www.youtube.com/playlist?list=" + PLAYLIST_ID; });
   if (STORE_URL) document.querySelectorAll(".store-btn").forEach(a => { a.href = STORE_URL; a.hidden = false; });
+</script>
+<script>
+(function () {
+  var f = document.getElementById('askForm'); if (!f) return;
+  var msg = document.getElementById('askMsg'), btn = document.getElementById('askBtn');
+  document.getElementById('a_t').value = Date.now();
+  document.getElementById('a_back').value = location.origin + location.pathname;
+  function show(ok, text) { msg.className = 'ask-msg ' + (ok ? 'ok' : 'err'); msg.textContent = text; msg.scrollIntoView({block: 'center'}); }
+  var q = new URLSearchParams(location.search);
+  if (q.get('sent')) show(true, '문의가 접수되었습니다. 영업일 기준 1일 안에 연락드리겠습니다.');
+  else if (q.get('err')) show(false, q.get('err'));
+  f.addEventListener('submit', function (e) {
+    if (!f.phone.value.trim() && !f.email.value.trim()) { e.preventDefault(); show(false, '전화번호나 이메일 중 하나는 적어 주세요.'); return; }
+    if (!window.fetch) return;              // 오래된 브라우저는 보통 방식으로 전송
+    e.preventDefault(); btn.disabled = true;
+    fetch(f.action, {method: 'POST', body: new URLSearchParams(new FormData(f)), headers: {'Accept': 'application/json'}})
+      .then(function (r) { return r.json(); })
+      .then(function (j) { show(j.ok, j.msg); if (j.ok) { f.reset(); document.getElementById('a_t').value = Date.now(); } })
+      .catch(function () { show(false, '보내지 못했습니다. 잠시 후 다시 시도하시거나 031-433-2480으로 전화 주세요.'); })
+      .finally(function () { btn.disabled = false; });
+  });
+})();
 </script>
 </body>
 </html>
