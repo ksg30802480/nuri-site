@@ -186,10 +186,16 @@ box-shadow:0 18px 50px rgba(20,40,70,.32);font:15px/1.6 'Malgun Gothic','Apple S
     form.querySelector(".back").onclick = function () { form.classList.remove("on"); };
     form.elements.name.focus();
   }
+  function fmtPhone(p) {   // 01030802480 → 010-3080-2480
+    var d = p.replace(/\D/g, "");
+    if (/^02\d{7,8}$/.test(d)) return d.replace(/^(02)(\d{3,4})(\d{4})$/, "$1-$2-$3");
+    if (/^0\d{9,10}$/.test(d)) return d.replace(/^(0\d{2})(\d{3,4})(\d{4})$/, "$1-$2-$3");
+    return p;
+  }
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var f = form.elements, err = form.querySelector(".err"), remote = form.dataset.kind === "remote";
-    var name = f.name.value.trim(), phone = f.phone.value.trim(), body = f.body.value.trim();
+    var name = f.name.value.trim(), phone = fmtPhone(f.phone.value.trim()), body = f.body.value.trim();
     if (!name || !phone || body.length < 2) { err.textContent = "이름, 전화번호, 내용을 적어 주세요."; return; }
     if (!f.agree.checked) { err.textContent = "개인정보 수집·이용에 동의해 주세요."; return; }
     var text = "[홈페이지 AI 상담에서 " + (remote ? "원격 지원 요청" : "상담원 연결") + "]\n" + body +
