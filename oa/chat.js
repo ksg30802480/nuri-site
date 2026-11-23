@@ -136,6 +136,9 @@ box-shadow:0 18px 50px rgba(20,40,70,.32);font:15px/1.6 'Malgun Gothic','Apple S
     if (!q || busy) return;
     if (q.length > 500) q = q.slice(0, 500);
     push("user", q);
+    if (/원격/.test(q) && q.length <= 30) {   // "원격 지원 요청" 같은 짧은 요청은 바로 안내 (AI 호출 없이)
+      push("assistant", REMOTE_INFO, {handoff: "remote"}); render(); return;
+    }
     if (ai === false) {
       push("assistant", "지금은 AI 답변을 준비 중입니다. 아래 [상담원 연결]로 연락처를 남기시면 담당자가 연락드립니다. (전화 031-433-2480)", {handoff: "contact"});
       return;
