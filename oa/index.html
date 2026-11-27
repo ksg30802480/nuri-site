@@ -89,9 +89,9 @@
     <div>
       <h1><span class="l1">렌탈 계약부터 청구, 미수금까지</span><br>내 PC에서 한 번에</h1>
       <p>거래처·기기·계약을 등록하면 월 청구서와 거래명세서가 만들어지고, 카운터 매수 청구와 AS 접수까지 한 곳에서 관리합니다. 인터넷 없이 내 PC에서 빠르게 동작합니다.</p>
-      <a class="btn" id="dl" href="https://github.com/ksg30802480/nuri-site/releases/download/oa-v1.4.7/OA_Rental_Setup.exe">무료 체험판 내려받기</a>
+      <a class="btn" id="dl" href="https://github.com/ksg30802480/nuri-site/releases/download/oa-v1.4.20/OA_Rental_Setup.exe">무료 체험판 내려받기</a>
       <a class="btn sub" href="#install">설치 방법</a>
-      <div class="meta">Windows 10 / 11 · 버전 <b class="vtxt">1.4.7</b> · 90일(3개월) 무료 체험 · 게시자 신도OA디지털</div>
+      <div class="meta">Windows 10 / 11 · 버전 <b class="vtxt">1.4.20</b> · 90일(3개월) 무료 체험 · 게시자 신도OA디지털</div>
     </div>
     <div class="panel">
       <h4>한 화면에서 관리</h4>
@@ -131,7 +131,7 @@
           <li>입력한 자료는 정식 사용 전환 후에도 그대로 유지</li>
           <li>별도 가입·카드 등록 없음</li>
         </ul>
-        <a class="btn sub" style="margin:16px 0 0;" href="https://github.com/ksg30802480/nuri-site/releases/download/oa-v1.4.7/OA_Rental_Setup.exe">체험판 내려받기</a>
+        <a class="btn sub" style="margin:16px 0 0;" href="https://github.com/ksg30802480/nuri-site/releases/download/oa-v1.4.20/OA_Rental_Setup.exe">체험판 내려받기</a>
       </div>
       <div class="plan">
         <h3>연간 라이선스</h3>
@@ -201,6 +201,21 @@
     <div class="log">
       <div class="cap">버전별 개선내용</div>
       <details open>
+        <summary>※ [OA 렌탈관리] 1.4.20 버전 개선내용 (2026.11)</summary>
+        <div class="body">
+          <ul>
+            <li><b>카운터 자동 수집 내장</b> — 환경설정 → 카운터 수집 설정에서 수집 환경 설치, 기기 등록, 시험 수집, 자동 수집 등록까지 OA 안에서 바로 처리합니다. OA 주소·API 키와 이메일 설정이 자동으로 채워집니다.</li>
+            <li><b>설정 틀 내보내기</b> — 거래처 PC에서 쓰는 수집 프로그램(CopierAgent)용 설정 파일을 OA에서 바로 만들어, 거래처 현장 설정을 쉽게 합니다.</li>
+            <li><b>기기 시리얼 중복 확인</b> — 기기를 저장할 때 같은 시리얼이 이미 있으면 저장을 막고, 'TMP-거래처초성-시리얼' 형태의 구분 키를 자동으로 만들어 줍니다. 중복 시리얼 점검 화면도 있습니다.</li>
+            <li><b>대시보드 홈 아이콘·화면 크기</b> — 자주 쓰는 화면을 홈 아이콘으로 두고, 대시보드 크기를 40~100%로 조절합니다.</li>
+            <li><b>화면·단축키 설정</b> — 상단 즐겨찾기 바와 홈 아이콘을 마음대로 고르고 마우스로 끌어 순서를 바꿉니다. Ctrl + 글자 단축키를 직접 지정할 수 있습니다.</li>
+            <li><b>인쇄 화면 단독 창</b> — 거래명세표·영수증 등 인쇄 화면이 인터넷 탭이 아닌 별도 창으로 열립니다.</li>
+            <li><b>환경설정 메뉴 정리</b> — 비슷한 메뉴를 화면·문서, 메일·공유, 카운터 수집, 접속·네트워크, 데이터·계정 묶음으로 정리했습니다.</li>
+            <li><b>복합기 아이콘</b> — 바탕화면·작업표시줄 아이콘을 청록색 복합기 모양으로 바꿔 서버형과 구분하기 쉽게 했습니다.</li>
+          </ul>
+        </div>
+      </details>
+      <details>
         <summary>※ [OA 렌탈관리] 1.4.7 버전 개선내용 (2026.11)</summary>
         <div class="body">
           <ul>
@@ -258,7 +273,7 @@
     </div>
   </section>
 
-  <footer>© 신도OA디지털 · OA 렌탈관리 <span id="ver">1.4.7</span> · <a href="/" style="color:inherit">누리 홈페이지</a> · <a href="../hansungform/" style="color:inherit">한성폼</a> · 문의 <a href="tel:031-433-2480" style="color:inherit">031-433-2480</a></footer>
+  <footer>© 신도OA디지털 · OA 렌탈관리 <span id="ver">1.4.20</span> · <a href="/" style="color:inherit">누리 홈페이지</a> · <a href="../hansungform/" style="color:inherit">한성폼</a> · 문의 <a href="tel:031-433-2480" style="color:inherit">031-433-2480</a></footer>
 </div>
 <script>
 fetch('license.json', {cache:'no-store'}).then(r => r.json()).then(j => {
